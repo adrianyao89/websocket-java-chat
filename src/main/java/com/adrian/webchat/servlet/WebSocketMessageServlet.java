@@ -1,4 +1,4 @@
-package com.adrian.websocket;
+package com.adrian.webchat.servlet;
 
 import java.util.UUID;
 
@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.catalina.websocket.StreamInbound;
 import org.apache.catalina.websocket.WebSocketServlet;
+
+import com.adrian.webchat.inbound.WebSocketMessageInbound;
 
 @WebServlet(urlPatterns = { "/message"}) 
 public class WebSocketMessageServlet extends WebSocketServlet {
@@ -29,6 +31,4 @@ public class WebSocketMessageServlet extends WebSocketServlet {
 		return super.verifyOrigin(origin);
 	}
 
-	
-	
 }

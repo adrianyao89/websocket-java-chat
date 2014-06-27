@@ -1,10 +1,12 @@
-package com.adrian.websocket;
+package com.adrian.webchat.common.utils;
 
 import java.io.IOException;
 import java.nio.CharBuffer;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+
+import com.adrian.webchat.inbound.WebSocketMessageInbound;
 
 public class WebSocketMessageInboundPool {
 	 private static final Map<String,WebSocketMessageInbound > connections = new HashMap<String,WebSocketMessageInbound>();  
@@ -19,7 +21,7 @@ public class WebSocketMessageInboundPool {
 	    //获取所有的在线用户  
 	    public static Set<String> getOnlineUser(){  
 	        return connections.keySet();  
-	    }  
+	    }
 	      
 	    public static void removeMessageInbound(WebSocketMessageInbound inbound){  
 	        //移除连接  

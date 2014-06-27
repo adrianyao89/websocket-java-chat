@@ -1,4 +1,4 @@
-package com.adrian.websocket;
+package com.adrian.webchat.inbound;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -6,6 +6,8 @@ import java.nio.CharBuffer;
 
 import org.apache.catalina.websocket.MessageInbound;
 import org.apache.catalina.websocket.WsOutbound;
+
+import com.adrian.webchat.common.utils.WebSocketMessageInboundPool;
 
 public class WebSocketMessageInbound extends MessageInbound {
 
