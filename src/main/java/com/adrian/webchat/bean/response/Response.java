@@ -8,8 +8,6 @@ public class Response<T>  implements Serializable {
 	
 	private static final long serialVersionUID = -4515222765281420692L;
 
-	private String uid;
-	
 	private State state;
 	
 	private T data;
@@ -54,13 +52,4 @@ public class Response<T>  implements Serializable {
 	public void setData(T data) {
 		this.data = data;
 	}
-
-	public String getUid() {
-		return uid;
-	}
-
-	public void setUid(String uid) {
-		this.uid = uid;
-	}
-	
 }

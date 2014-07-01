@@ -8,11 +8,31 @@ public class Header implements Serializable {
 	
 	private String uid;
 	
+	private String type;
+	
+	private String token;
+	
 	public String getUid() {
 		return uid;
 	}
 
 	public void setUid(String uid) {
 		this.uid = uid;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
 	}
 }

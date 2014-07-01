@@ -2,7 +2,7 @@ package com.adrian.webchat.exception;
 
 import com.adrian.webchat.common.constants.StateCode;
 
-public class ChatException extends Exception {
+public class ChatException extends RuntimeException {
 
 	private static final long serialVersionUID = 8578634394481745051L;
 	

@@ -13,4 +13,28 @@
 
 	<bean id="protocolValidator" class="com.adrian.webchat.extension.protocol.validator.DefaultValidator"></bean>
 	
+	<bean id="protocolType" class="com.adrian.webchat.common.constants.ProtocolType">
+		<property name="types">
+			<list>
+				<value>request</value>
+				<value>response</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="router" class="com.adrian.webchat.extension.router.DefaultRouter">
+		<property name="protocolType" ref="protocolType"/>
+	</bean>
+	
+	<bean id="cbus" class="com.adrian.webchat.handler.CbusHandler">
+    	<property name="protocolConvertor" ref="protocolConvertor" />
+    	<property name="protocolValidator" ref="protocolValidator"/>
+    	<property name="router" ref="router"/>
+    	<property name="authentication" ref="authentication"/>
+    </bean>
+    
+    <bean id="authentication" class="com.adrian.webchat.extension.security.DefaultAuthentication">
+    	<property name="tokenDao" ref="tokenDao"/>
+    </bean>
+	
 </beans>

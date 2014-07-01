@@ -1,10 +1,10 @@
 package com.adrian.webchat.processer;
 
-import java.util.Map;
-
-import com.adrian.webchat.exception.ChatException;
+import com.adrian.webchat.bean.request.Protocol;
 
 public interface Processer {
 	
-	void handle(Map<String, Object> data) throws ChatException;
+	void handleRequest(Protocol protocol);
+	
+	void handleResponse(Protocol protocol);
 }

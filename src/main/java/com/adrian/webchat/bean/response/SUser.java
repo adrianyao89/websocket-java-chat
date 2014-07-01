@@ -11,6 +11,8 @@ public class SUser implements Serializable {
 	private String name;
 
 	private String icon;
+	
+	private SToken token;
 
 	public int getId() {
 		return id;
@@ -34,5 +36,13 @@ public class SUser implements Serializable {
 
 	public void setIcon(String icon) {
 		this.icon = icon;
+	}
+
+	public SToken getToken() {
+		return token;
+	}
+
+	public void setToken(SToken token) {
+		this.token = token;
 	}
 }
