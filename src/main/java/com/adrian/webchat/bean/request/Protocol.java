@@ -25,4 +25,12 @@ public class Protocol implements Serializable {
 	public void setHeader(Header header) {
 		this.header = header;
 	}
+	
+	public String getPath() {
+		if (null != module) {
+			return module.getName() + "_" + module.getAction();
+		} else {
+			return null;
+		}
+	}
 }

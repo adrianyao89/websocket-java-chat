@@ -6,7 +6,7 @@ import java.util.Map;
 
 import org.springframework.web.socket.WebSocketSession;
 
-import com.adrian.webchat.bean.model.MToken;
+import com.adrian.webchat.extension.security.Token;
 
 public class ActiveWebSocketSessionPool {
 	
@@ -14,7 +14,7 @@ public class ActiveWebSocketSessionPool {
 	
 	private static final Map<Integer, WebSocketSession> sessions = new LinkedHashMap<Integer, WebSocketSession>();
 	
-	private static final Map<WebSocketSession, MToken> authenticatedSessions = new LinkedHashMap<WebSocketSession, MToken>();
+	private static final Map<WebSocketSession, Token> authenticatedSessions = new LinkedHashMap<WebSocketSession, Token>();
 	
 	public static void add(int userId, WebSocketSession session) {
 		sessions.put(userId, session);
@@ -44,12 +44,12 @@ public class ActiveWebSocketSessionPool {
 		return anonymousSessions.values();
 	}
 
-	public static MToken getAuthToken(WebSocketSession session) {
+	public static Token getAuthToken(WebSocketSession session) {
 		return authenticatedSessions.get(session);
 	}
 	
-	public static void addAuthSession(WebSocketSession session, MToken mToken) {
-		authenticatedSessions.put(session, mToken);
+	public static void addAuthSession(WebSocketSession session, Token token) {
+		authenticatedSessions.put(session, token);
 	}
 	
 	public static void removeAuthSession(WebSocketSession session) {

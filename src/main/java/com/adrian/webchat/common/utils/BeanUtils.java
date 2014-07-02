@@ -41,6 +41,7 @@ import org.apache.commons.beanutils.BeanUtilsBean;
  * @see BeanUtilsBean
  */
 
+@SuppressWarnings("rawtypes")
 public class BeanUtils {
 
 
@@ -166,7 +167,7 @@ public class BeanUtils {
      * @see BeanUtilsBean#describe 
      */
     public static Map describe(Object bean) {
-    	Map tmp = null;
+		Map tmp = null;
         try {
         	tmp = BeanUtilsBean.getInstance().describe(bean);
 		} catch (IllegalAccessException e) {

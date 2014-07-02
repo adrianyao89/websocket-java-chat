@@ -6,7 +6,6 @@ import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
-import com.adrian.webchat.bean.model.MToken;
 import com.adrian.webchat.bean.request.Protocol;
 import com.adrian.webchat.bean.response.Response;
 import com.adrian.webchat.common.constants.StateCode;
@@ -18,7 +17,9 @@ import com.adrian.webchat.extension.protocol.convertor.Convertible;
 import com.adrian.webchat.extension.protocol.validator.Validator;
 import com.adrian.webchat.extension.router.Router;
 import com.adrian.webchat.extension.security.Authentication;
+import com.adrian.webchat.extension.security.Token;
 
+@SuppressWarnings("rawtypes")
 public class CbusHandler extends TextWebSocketHandler {
 
 	private Convertible protocolConvertor;
@@ -59,7 +60,7 @@ public class CbusHandler extends TextWebSocketHandler {
 	public void afterConnectionClosed(WebSocketSession session,
 			CloseStatus status) throws Exception {
 		ActiveWebSocketSessionPool.removeAn(session);
-		MToken token = ActiveWebSocketSessionPool.getAuthToken(session);
+		Token token = ActiveWebSocketSessionPool.getAuthToken(session);
 		ActiveWebSocketSessionPool.remove(null == token ? null : token.getUserId());
 		ActiveWebSocketSessionPool.removeAuthSession(session);
 		

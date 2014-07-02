@@ -18,13 +18,10 @@ import com.adrian.webchat.dao.TokenDao;
 @Repository("tokenDao")
 public class TokenDaoImpl implements TokenDao {
 	
-	private DataSource dataSource;
-	
 	private JdbcTemplate jdbcTemplate;
 
 	@Resource
 	public void setDataSource(DataSource dataSource) {
-		this.dataSource = dataSource;
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 

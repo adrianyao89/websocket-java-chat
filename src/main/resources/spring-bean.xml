@@ -35,6 +35,11 @@
     
     <bean id="authentication" class="com.adrian.webchat.extension.security.DefaultAuthentication">
     	<property name="tokenDao" ref="tokenDao"/>
+    	<property name="excludeAuth">
+    		<list>
+    			<value>oauth_login</value>
+    		</list>
+    	</property>
     </bean>
 	
 </beans>

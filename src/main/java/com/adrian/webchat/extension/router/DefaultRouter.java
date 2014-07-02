@@ -11,13 +11,14 @@ import com.adrian.webchat.common.utils.SpringContextUtil;
 import com.adrian.webchat.exception.ChatException;
 import com.adrian.webchat.processer.Processer;
 
+@SuppressWarnings("rawtypes")
 public class DefaultRouter implements Router {
 	
 	private ProtocolType protocolType;
 
 	@Override
 	public void route(Protocol protocol) {
-		Processer processer = SpringContextUtil.getBean(protocol.getModule().getName() + "_" + protocol.getModule().getAction(), Processer.class);
+		Processer processer = SpringContextUtil.getBean(protocol.getPath(), Processer.class);
 		String type = protocol.getHeader().getType();
 		if (processer != null && protocolType.getTypes().contains(type)) {
 			try {

@@ -17,8 +17,6 @@ import com.adrian.webchat.dao.UserDao;
 @Repository("userDao")
 public class UserDaoImpl implements UserDao {
 	
-	private DataSource dataSource;
-	
 	private JdbcTemplate jdbcTemplate;
 
 	@Override
@@ -51,7 +49,6 @@ public class UserDaoImpl implements UserDao {
 
 	@Resource
 	public void setDataSource(DataSource dataSource) {
-		this.dataSource = dataSource;
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
