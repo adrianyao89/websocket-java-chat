@@ -1,8 +1,9 @@
 package com.adrian.webchat.common.utils;
 
 import java.util.Collection;
-import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.web.socket.WebSocketSession;
 
@@ -10,11 +11,11 @@ import com.adrian.webchat.extension.security.Token;
 
 public class ActiveWebSocketSessionPool {
 	
-	private static final Map<String, WebSocketSession> anonymousSessions = new LinkedHashMap<String, WebSocketSession>();
+	private static final Map<String, WebSocketSession> anonymousSessions = new ConcurrentHashMap<String, WebSocketSession>();
 	
-	private static final Map<Integer, WebSocketSession> sessions = new LinkedHashMap<Integer, WebSocketSession>();
+	private static final Map<Integer, WebSocketSession> sessions = new ConcurrentHashMap<Integer, WebSocketSession>();
 	
-	private static final Map<WebSocketSession, Token> authenticatedSessions = new LinkedHashMap<WebSocketSession, Token>();
+	private static final Map<WebSocketSession, Token> authenticatedSessions = new ConcurrentHashMap<WebSocketSession, Token>();
 	
 	public static void add(int userId, WebSocketSession session) {
 		sessions.put(userId, session);
@@ -24,8 +25,12 @@ public class ActiveWebSocketSessionPool {
 		sessions.remove(userId);
 	}
 	
-	public static WebSocketSession get(String id) {
+	public static WebSocketSession get(Integer id) {
 		return sessions.get(id);
+	}
+	
+	public static Set<Integer> getKeys() {
+		return sessions.keySet();
 	}
 	
 	public static void addAn(WebSocketSession session) {

@@ -8,6 +8,8 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
+        
+    <context:component-scan base-package="com.adrian.webchat"/>
 
 	<bean id="protocolConvertor" class="com.adrian.webchat.extension.protocol.convertor.DefaultConvertor"></bean>
 
@@ -26,13 +28,6 @@
 		<property name="protocolType" ref="protocolType"/>
 	</bean>
 	
-	<bean id="cbus" class="com.adrian.webchat.handler.CbusHandler">
-    	<property name="protocolConvertor" ref="protocolConvertor" />
-    	<property name="protocolValidator" ref="protocolValidator"/>
-    	<property name="router" ref="router"/>
-    	<property name="authentication" ref="authentication"/>
-    </bean>
-    
     <bean id="authentication" class="com.adrian.webchat.extension.security.DefaultAuthentication">
     	<property name="tokenDao" ref="tokenDao"/>
     	<property name="excludeAuth">
@@ -41,5 +36,13 @@
     		</list>
     	</property>
     </bean>
+
+	<bean id="cbus" class="com.adrian.webchat.handler.CbusHandler">
+    	<property name="protocolConvertor" ref="protocolConvertor" />
+    	<property name="protocolValidator" ref="protocolValidator"/>
+    	<property name="router" ref="router"/>
+    	<property name="authentication" ref="authentication"/>
+    </bean>
+    
 	
 </beans>

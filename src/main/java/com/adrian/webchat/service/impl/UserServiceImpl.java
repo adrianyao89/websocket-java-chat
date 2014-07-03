@@ -21,6 +21,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public MUser login(RUser user) {
 		MUser userDb = userDao.getUser(BeanUtils.copyProperties(new MUser(), user));
+		
 		if (userDb == null) {
 			return null;
 		}

@@ -10,6 +10,15 @@ public class MToken {
 	private String token;
 	
 	private Date expired;
+	
+	public MToken() {
+	}
+	
+	public MToken(int userId, String token, Date expired) {
+		this.userId = userId;
+		this.token = token;
+		this.expired = expired;
+	}
 
 	public int getUserId() {
 		return userId;

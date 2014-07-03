@@ -33,6 +33,7 @@ public class DefaultAuthentication implements Authentication {
 				if (tokenObj != null) {
 					ActiveWebSocketSessionPool.add(tokenObj.getUserId(), RequestContextManager.getSession());
 					ActiveWebSocketSessionPool.addAuthSession(RequestContextManager.getSession(), tokenObj);
+					ActiveWebSocketSessionPool.removeAn(RequestContextManager.getSession());
 					return true;
 				}
 			}
@@ -40,10 +41,6 @@ public class DefaultAuthentication implements Authentication {
 			return true;
 		}
 		return false;
-	}
-
-	public void setTokenDao(TokenDao tokenDao) {
-		this.tokenDao = tokenDao;
 	}
 
 	@Override
@@ -102,4 +99,13 @@ public class DefaultAuthentication implements Authentication {
 		}
 		return tokenObj;
 	}
+
+	public void setExcludeAuth(List<String> excludeAuth) {
+		this.excludeAuth = excludeAuth;
+	}
+	
+	public void setTokenDao(TokenDao tokenDao) {
+		this.tokenDao = tokenDao;
+	}
+	
 }

@@ -35,7 +35,7 @@ public class UserDaoImpl implements UserDao {
 					user.setPassword(rs.getString("password"));
 					user.setIcon(rs.getString("icon"));
 				}
-				return null;
+				return user;
 			}
 		}, user.getUsername());
 		return useredb;

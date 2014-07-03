@@ -16,26 +16,30 @@ public class Module implements Serializable {
 	public String getName() {
 		return name;
 	}
-	public void setName(String name) {
+	public Module setName(String name) {
 		this.name = name;
+		return this;
 	}
 	public String getAction() {
 		return action;
 	}
-	public void setAction(String action) {
+	public Module setAction(String action) {
 		this.action = action;
+		return this;
 	}
 	public Map<String, Object> getData() {
 		return data;
 	}
-	public void setData(Map<String, Object> data) {
+	public Module setData(Map<String, Object> data) {
 		this.data = data;
+		return this;
 	}
 	public Response<?> getResponse() {
 		return response;
 	}
-	public void setResponse(Response<?> response) {
+	public Module setResponse(Response<?> response) {
 		this.response = response;
+		return this;
 	}
 	
 }

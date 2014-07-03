@@ -15,7 +15,7 @@ public class MUser implements Serializable {
 	private String name;
 
 	private String icon;
-
+	
 	public int getId() {
 		return id;
 	}

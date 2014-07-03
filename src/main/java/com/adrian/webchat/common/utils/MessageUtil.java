@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.UUID;
 
 import org.springframework.web.socket.TextMessage;
+import org.springframework.web.socket.WebSocketSession;
 
 import com.adrian.webchat.bean.request.Header;
 import com.adrian.webchat.bean.request.Module;
@@ -44,6 +45,24 @@ public class MessageUtil {
 				protocol.setModule(module);
 				RequestContextManager.getSession().sendMessage(new TextMessage(new Gson().toJson(protocol).getBytes()));
 		} catch (IOException e) {
+		}
+	}
+	
+	public static void request(WebSocketSession session, Module module) {
+		request(session, module, false);
+	}
+	
+	public static void request(WebSocketSession session, Module module, boolean needACK) {
+		try {
+				Protocol protocol = new Protocol();
+				Header header = new Header();
+				header.setType("request");
+				header.setUid(needACK ? UUID.randomUUID().toString() : null);
+				protocol.setHeader(header);
+				protocol.setModule(module);
+				session.sendMessage(new TextMessage(new Gson().toJson(protocol).getBytes()));
+		} catch (IOException e) {
+			System.out.println(e);
 		}
 	}
 }
