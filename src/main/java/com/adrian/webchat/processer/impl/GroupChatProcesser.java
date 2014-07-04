@@ -9,9 +9,9 @@ import org.springframework.stereotype.Component;
 import com.adrian.webchat.bean.request.Protocol;
 import com.adrian.webchat.bean.request.RGroupMessage;
 import com.adrian.webchat.common.utils.BeanUtils;
-import com.adrian.webchat.dao.GroupMessageService;
 import com.adrian.webchat.exception.ChatException;
 import com.adrian.webchat.processer.Processer;
+import com.adrian.webchat.service.GroupMessageService;
 
 @Component("chat_group")
 public class GroupChatProcesser implements Processer {

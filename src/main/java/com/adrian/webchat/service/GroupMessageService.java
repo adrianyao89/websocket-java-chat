@@ -1,4 +1,4 @@
-package com.adrian.webchat.dao;
+package com.adrian.webchat.service;
 
 import com.adrian.webchat.bean.request.RGroupMessage;
 

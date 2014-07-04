@@ -32,6 +32,7 @@ public class CbusHandler extends TextWebSocketHandler {
 	
 	@Override
 	public void afterConnectionEstablished(WebSocketSession session) throws Exception {
+		System.out.println("estable");
 		ActiveWebSocketSessionPool.addAn(session);
 	}
 	

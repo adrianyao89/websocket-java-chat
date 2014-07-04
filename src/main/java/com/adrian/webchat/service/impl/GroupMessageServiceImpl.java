@@ -1,6 +1,4 @@
-package com.adrian.webchat.dao.impl;
-
-import java.util.HashMap;
+package com.adrian.webchat.service.impl;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.socket.WebSocketSession;
@@ -10,7 +8,7 @@ import com.adrian.webchat.bean.request.RGroupMessage;
 import com.adrian.webchat.common.utils.ActiveWebSocketSessionPool;
 import com.adrian.webchat.common.utils.BeanUtils;
 import com.adrian.webchat.common.utils.MessageUtil;
-import com.adrian.webchat.dao.GroupMessageService;
+import com.adrian.webchat.service.GroupMessageService;
 
 @Service
 public class GroupMessageServiceImpl implements GroupMessageService {

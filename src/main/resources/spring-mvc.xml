@@ -19,9 +19,9 @@
     
     <websocket:handlers>
         <websocket:mapping path="/cbus" handler="cbus"/>
-        <websocket:handshake-interceptors>
-            <bean class="org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor"/>
-        </websocket:handshake-interceptors>
+<!--         <websocket:handshake-interceptors> -->
+<!--             <bean class="org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor"/> -->
+<!--         </websocket:handshake-interceptors> -->
     </websocket:handlers>
 
 </beans>
