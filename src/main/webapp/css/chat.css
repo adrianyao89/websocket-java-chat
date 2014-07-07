@@ -1,0 +1,117 @@
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+}
+
+.main-div {
+	min-height: 100%;
+	background-color: #c9c9c9;
+}
+
+.tool-bar {
+	height: 65px;
+}
+
+.login-bar {
+	float: right;
+	margin: 10px 20px;
+}
+
+.chat-win {
+	width: 600px;
+	height: 500px;
+	margin: auto;
+}
+
+.chat-win-top-bar {
+	height: 30px;
+}
+
+
+.chat-win-operation{
+	float: right;
+}
+
+.chat-win-operation button {
+	width: 35px;
+}
+
+.chat-content-view {
+	height: 320px;
+	max-height: 320px;
+	overflow:scroll;
+	overflow-x: hidden;
+}
+
+.chat-middle-tool {
+	height: 18px;
+}
+
+.chat-send-box {
+	height: 85px;
+}
+
+.chat-record {
+	margin: 5px;
+}
+
+.chat-record-header {
+	width: 45px;
+	height: 45px;
+	max-width: 45px;
+	max-height: 45px;
+	float: left;
+}
+
+.chat-record-title {
+	margin-bottom: 5px;
+}
+
+.chat-record-content {
+	padding: 10px;
+	float: left;
+	max-width: 450px;
+	margin-bottom: 10px;
+}
+
+.chat-my-record {
+	margin: 5px;
+}
+
+.chat-my-record-header {
+	width: 45px;
+	height: 45px;
+	max-width: 45px;
+	max-height: 45px;
+	float: right;
+}
+
+.chat-my-record-content {
+	padding: 10px;
+	float: right;
+	max-width: 450px;
+}
+
+.chat-send-input {
+	margin: 0;
+	width: 100%;
+	height: 320px;
+	max-width: 100%;
+	max-height: 85px;
+}
+
+.login-message {
+	position: absolute;
+	margin-left: 98px;
+}
+
+.login-message p {
+	padding: 7px;
+}
+
+.chat-record-theme img,.chat-my-record-theme img {
+	max-width: 400px;
+}
