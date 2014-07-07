@@ -25,9 +25,10 @@ public class MessageUtil {
 				Module module = new Module();
 				module.setResponse(t);
 				protocol.setModule(module);
-				RequestContextManager.getSession().sendMessage(new TextMessage(new Gson().toJson(protocol).getBytes()));
+				RequestContextManager.getSession().sendMessage(new TextMessage(new Gson().toJson(protocol).getBytes("UTF-8")));
 			}
 		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 	
@@ -43,8 +44,9 @@ public class MessageUtil {
 				header.setUid(needACK ? UUID.randomUUID().toString() : null);
 				protocol.setHeader(header);
 				protocol.setModule(module);
-				RequestContextManager.getSession().sendMessage(new TextMessage(new Gson().toJson(protocol).getBytes()));
+				RequestContextManager.getSession().sendMessage(new TextMessage(new Gson().toJson(protocol).getBytes("UTF-8")));
 		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 	
@@ -60,9 +62,9 @@ public class MessageUtil {
 				header.setUid(needACK ? UUID.randomUUID().toString() : null);
 				protocol.setHeader(header);
 				protocol.setModule(module);
-				session.sendMessage(new TextMessage(new Gson().toJson(protocol).getBytes()));
+				session.sendMessage(new TextMessage(new Gson().toJson(protocol).getBytes("UTF-8")));
 		} catch (IOException e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 	}
 }

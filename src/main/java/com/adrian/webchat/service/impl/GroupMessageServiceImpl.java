@@ -23,7 +23,7 @@ public class GroupMessageServiceImpl implements GroupMessageService {
 				try {
 					MessageUtil.request(session, new Module().setAction("group").setName("chat").setData(BeanUtils.describe(groupMessage)));
 				} catch (Exception e) {
-					System.out.println(e);
+					e.printStackTrace();
 				}
 			}
 		}

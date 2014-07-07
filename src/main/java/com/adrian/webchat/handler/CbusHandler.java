@@ -32,7 +32,6 @@ public class CbusHandler extends TextWebSocketHandler {
 	
 	@Override
 	public void afterConnectionEstablished(WebSocketSession session) throws Exception {
-		System.out.println("estable");
 		ActiveWebSocketSessionPool.addAn(session);
 	}
 	
@@ -62,7 +61,7 @@ public class CbusHandler extends TextWebSocketHandler {
 			CloseStatus status) throws Exception {
 		ActiveWebSocketSessionPool.removeAn(session);
 		Token token = ActiveWebSocketSessionPool.getAuthToken(session);
-		ActiveWebSocketSessionPool.remove(null == token ? null : token.getUserId());
+		ActiveWebSocketSessionPool.remove(null == token ? 0 : token.getUserId());
 		ActiveWebSocketSessionPool.removeAuthSession(session);
 		
 	}
